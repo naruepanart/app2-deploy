@@ -6,6 +6,8 @@ services:
     image: app2
     container_name: app2
     restart: unless-stopped
+    ports:
+      - "3001:80"
     networks:
       - app-network
 

@@ -7,21 +7,8 @@ services:
     container_name: app2
     restart: unless-stopped
     networks:
-      - app2-network
-
-  proxy:
-    image: nginx:alpine
-    container_name: web-proxy
-    restart: unless-stopped
-    volumes:
-      - ./proxy.conf:/etc/nginx/conf.d/default.conf
-    ports:
-      - 80:80
-    depends_on:
-      - app2
-    networks:
-      - app2-network
+      - app-network
 
 networks:
-  app2-network:
+  app-network:
     driver: bridge

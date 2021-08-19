@@ -4,13 +4,13 @@ services:
   app2:
     build: .
     image: app2
-    container_name: app2
-    restart: unless-stopped
+    restart: always
     ports:
-      - "3001:80"
+      - 3001:80
     networks:
       - app-network
 
 networks:
   app-network:
-    driver: bridge
+    external: 
+      name: app-network
